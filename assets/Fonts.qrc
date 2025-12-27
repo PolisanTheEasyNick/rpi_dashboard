@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>fonts/FunnelDisplay-VariableFont_wght.ttf</file>
+        <file>fonts/LTBinaryNeue.ttf</file>
+    </qresource>
+</RCC>

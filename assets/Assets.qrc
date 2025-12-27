@@ -1,0 +1,51 @@
+<RCC>
+    <qresource prefix="/assets">
+        <file>fonts/FunnelDisplay.ttf</file>
+        <file>fonts/BinaryNeue.ttf</file>
+        <file>fonts/Lexend.ttf</file>
+        <file>fonts/Comfortaa.woff</file>
+    </qresource>
+    <qresource prefix="/weather">
+        <file>weather/1.gif</file>
+        <file>weather/8.gif</file>
+        <file>weather/7.gif</file>
+        <file>weather/6.gif</file>
+        <file>weather/5.gif</file>
+        <file>weather/4.gif</file>
+        <file>weather/44.gif</file>
+        <file>weather/43.gif</file>
+        <file>weather/42.gif</file>
+        <file>weather/41.gif</file>
+        <file>weather/40.gif</file>
+        <file>weather/3.gif</file>
+        <file>weather/39.gif</file>
+        <file>weather/38.gif</file>
+        <file>weather/37.gif</file>
+        <file>weather/36.gif</file>
+        <file>weather/35.gif</file>
+        <file>weather/34.gif</file>
+        <file>weather/33.gif</file>
+        <file>weather/32.gif</file>
+        <file>weather/31.gif</file>
+        <file>weather/30.gif</file>
+        <file>weather/2.gif</file>
+        <file>weather/29.gif</file>
+        <file>weather/26.gif</file>
+        <file>weather/25.gif</file>
+        <file>weather/24.gif</file>
+        <file>weather/23.gif</file>
+        <file>weather/22.gif</file>
+        <file>weather/21.gif</file>
+        <file>weather/20.gif</file>
+        <file>weather/19.gif</file>
+        <file>weather/18.gif</file>
+        <file>weather/17.gif</file>
+        <file>weather/16.gif</file>
+        <file>weather/15.gif</file>
+        <file>weather/14.gif</file>
+        <file>weather/13.gif</file>
+        <file>weather/12.gif</file>
+        <file>weather/11.gif</file>
+        <file>weather/uv-index.svg</file>
+    </qresource>
+</RCC>
