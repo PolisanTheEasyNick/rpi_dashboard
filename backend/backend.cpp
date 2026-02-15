@@ -57,11 +57,11 @@ Backend::Backend(QObject *parent) :
     //
     m_prom.setEndpoint(m_prometheusUrl);
 
-    m_prom.addMetric("gpu_usage", "nvidia_smi_utilization_gpu_ratio");
+    m_prom.addMetric("gpu_usage", "nvidia_gpu_duty_cycle");
     m_prom.addMetric("ram_usage",
                      "node_memory_MemAvailable_bytes");
     m_prom.addMetric("ram_total", "node_memory_MemTotal_bytes");
-    m_prom.addMetric("gpu_temp", "nvidia_smi_temperature_gpu");
+    m_prom.addMetric("gpu_temp", "nvidia_gpu_temperature_celsius");
     m_prom.addMetric("boot_time", "node_boot_time_seconds");
     connect(&m_prom,
             &PrometheusClient::metricsChanged,

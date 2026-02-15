@@ -162,13 +162,13 @@ PrometheusClient::handleResponse(QNetworkReply *reply)
             {
                 m_values["all_memory"] = value;
             }
-            else if (name == "nvidia_smi_temperature_gpu")
+            else if (name == "nvidia_gpu_temperature_celsius")
             {
                 m_values["gpu_temp"] = value;
             }
-            else if (name == "nvidia_smi_utilization_gpu_ratio")
+            else if (name == "nvidia_gpu_duty_cycle")
             {
-                m_values["gpu_usage"] = value * 100;
+                m_values["gpu_usage"] = value;
             }
         }
 

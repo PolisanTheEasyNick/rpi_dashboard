@@ -26,11 +26,16 @@ GridLayout {
         textLabel: "CPU Temp"
         value: backend.cpuTemp
         suffix: "°C"
+        warningThreshold: 70
+        badThreshold: 90
+
     }
     Gauge {
         textLabel: "GPU Temp"
         value: backend.gpuTemp
         suffix: "°C"
+        warningThreshold: 70
+        badThreshold: 90
     }
 
     GridLayout {
