@@ -37,6 +37,7 @@ Spotify::onDisconnected()
 {
     qDebug() << "[Spotify] Disconnected. Reconnecting...";
     m_reconnectTimer.start();
+    m_isPlaying = false;
 }
 
 void
@@ -48,6 +49,7 @@ Spotify::reconnect()
     {
         m_ws.open(m_url);
     }
+    m_isPlaying = false;
 }
 
 void
