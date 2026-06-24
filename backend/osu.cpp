@@ -301,6 +301,7 @@ void
 Osu::fetchMenuPP()
 {
     QUrl url = m_url;
+    url.setScheme("http");
     url.setPath(url.path() + "/api/calculate/pp");
     QNetworkRequest req(url);
     QNetworkReply *reply = m_nam->get(req);
