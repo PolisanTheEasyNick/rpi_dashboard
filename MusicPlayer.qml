@@ -8,10 +8,10 @@ Item {
     width: 960
     height: 640
 
-    property url coverSource: backend.spotify.artURL
-    property string songTitle: backend.spotify.title
-    property string songArtist: backend.spotify.artist
-    property string songAlbum: backend.spotify.album
+    property url coverSource: backend.musicPlayer.artURL
+    property string songTitle: backend.musicPlayer.title
+    property string songArtist: backend.musicPlayer.artist
+    property string songAlbum: backend.musicPlayer.album
 
     property bool imageReady: bgImage.status === Image.Ready
 

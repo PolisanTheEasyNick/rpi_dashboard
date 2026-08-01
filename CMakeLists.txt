@@ -44,10 +44,10 @@ qt_add_qml_module(apprpi_dashboard
         backend/prometheusclient.h backend/prometheusclient.cpp
         backend/weatherclient.h backend/weatherclient.cpp
         backend/wsupdator.h backend/wsupdator.cpp
-        QML_FILES Spotify.qml
+        QML_FILES MusicPlayer.qml
         RESOURCES
         QML_FILES Main.qml
-        SOURCES backend/spotify.h backend/spotify.cpp
+        SOURCES backend/musicplayer.h backend/musicplayer.cpp
         QML_FILES PcOFF.qml
         QML_FILES components/Utils.js
         QML_FILES Osu.qml

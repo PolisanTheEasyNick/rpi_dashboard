@@ -1,8 +1,8 @@
 #ifndef BACKEND_H
 #define BACKEND_H
 
+#include "backend/musicplayer.h"
 #include "backend/osu.h"
-#include "backend/spotify.h"
 #include "backend/wsupdator.h"
 #include "prometheusclient.h"
 #include "weatherclient.h"
@@ -38,15 +38,15 @@ class Backend :
     // PC Status (Ping)
     Q_PROPERTY(bool pcOnline      READ pcOnline     NOTIFY pcOnlineChanged)
 
-    // Spotify
-    Q_PROPERTY(Spotify* spotify READ spotify CONSTANT)
+    // MusicPlayer
+    Q_PROPERTY(MusicPlayer* musicPlayer READ musicPlayer CONSTANT)
 
     // Osu
     Q_PROPERTY(Osu* osu READ osu CONSTANT)
 
 public:
     explicit Backend(QObject *parent = nullptr);
-    Spotify *spotify() { return &m_spotify; }
+    MusicPlayer *musicPlayer() { return &m_musicPlayer; }
     Osu *osu() { return &m_osu; }
 
     // Getters
@@ -91,7 +91,7 @@ signals:
     void fpsChanged();
     void rpiChanged();
     void roomTempChanged();
-    void spotifyChanged();
+    void musicPlayerChanged();
     void pcOnlineChanged();
 
 private slots:
@@ -132,8 +132,8 @@ private:
     bool m_pcOnline = true;
     int m_pingFailures = 0;
 
-    // Spotify
-    Spotify m_spotify;
+    // MusicPlayer
+    MusicPlayer m_musicPlayer;
 
     Osu m_osu;
 
@@ -143,6 +143,7 @@ private:
     // config
     QString m_spotifyUrl;
     QString m_spotifyAlbumUrl;
+    quint16 m_navidromeWsPort;
     QString m_prometheusUrl;
     QString m_pcFpsUrl;
     QString m_roomTempUrl;

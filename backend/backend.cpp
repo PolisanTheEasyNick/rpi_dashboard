@@ -7,7 +7,7 @@
 #include <QSettings>
 
 Backend::Backend(QObject *parent) :
-    QObject(parent), m_spotify(parent)
+    QObject(parent), m_musicPlayer(parent)
 {
     // Config load
     QString configPath = QCoreApplication::applicationDirPath() + "/config.ini";
@@ -33,11 +33,16 @@ Backend::Backend(QObject *parent) :
     m_tosuUrl = settings.value("tosu_ws").toString();
     settings.endGroup();
 
+    settings.beginGroup("Navidrome");
+    m_navidromeWsPort = settings.value("ws_server_port", 4534).toInt();
+    settings.endGroup();
+
     settings.beginGroup("Weather");
     m_weatherUrl = settings.value("weather_ws_url").toString();
     settings.endGroup();
 
-    m_spotify.setUrl(m_spotifyUrl, m_spotifyAlbumUrl);
+    m_musicPlayer.setSpotifyUrl(m_spotifyUrl, m_spotifyAlbumUrl);
+    m_musicPlayer.setNavidromePort(m_navidromeWsPort);
     m_osu.setUrl(m_tosuUrl);
 
     //
@@ -84,7 +89,7 @@ Backend::Backend(QObject *parent) :
     connect(&m_promTimer, &QTimer::timeout, this, &Backend::pullPrometheus, Qt::UniqueConnection);
     connect(&m_fps_updator, &WSUpdator::valueChanged, this, &Backend::fpsUpdated, Qt::UniqueConnection);
     connect(&m_temp_updator, &WSUpdator::valueChanged, this, &Backend::roomTempUpdated, Qt::UniqueConnection);
-    connect(&m_spotify, &Spotify::changed, this, &Backend::spotifyChanged, Qt::UniqueConnection);
+    connect(&m_musicPlayer, &MusicPlayer::changed, this, &Backend::musicPlayerChanged, Qt::UniqueConnection);
     connect(&m_pingTimer, &QTimer::timeout, this, &Backend::checkPing, Qt::UniqueConnection);
 
     m_promTimer.setInterval(1000);

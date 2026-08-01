@@ -41,10 +41,10 @@ Window {
                 return osuView
             }
 
-            // 1. Priority: Spotify (Overrides everything if playing)
-            if (backend.spotify.isPlaying && !backend.spotify.gamemodeStarted
-                    && backend.spotify.spotifyStarted) {
-                return spotifyView
+            // 1. Priority: MusicPlayer (Overrides everything if playing)
+            if (backend.musicPlayer.isPlaying && !backend.musicPlayer.gamemodeStarted
+                    && backend.musicPlayer.musicPlayerStarted) {
+                return musicPlayerView
             }
 
             // 2. Priority: PC is Offline
@@ -64,8 +64,8 @@ Window {
         }
     }
     Component {
-        id: spotifyView
-        Spotify {}
+        id: musicPlayerView
+        MusicPlayer {}
     }
 
     Component {
