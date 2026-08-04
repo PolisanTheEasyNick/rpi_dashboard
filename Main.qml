@@ -37,32 +37,33 @@ Window {
         active: true
 
         sourceComponent: {
-            if (backend.osu.started) {
-                return osuView
+            let isOsuRunning = backend.osu.started;
+            let isPcOnline = backend.pcOnline;
+            let isDay = backend.day;
+            let isMusicPlaying = (backend.musicPlayer.isPlaying &&
+                                 !backend.musicPlayer.gamemodeStarted &&
+                                 backend.musicPlayer.musicPlayerStarted);
+
+            if (isOsuRunning) {
+                return osuView;
             }
 
-            // 1. Priority: MusicPlayer (Overrides everything if playing)
-            if (backend.musicPlayer.isPlaying && !backend.musicPlayer.gamemodeStarted
-                    && backend.musicPlayer.musicPlayerStarted) {
-                return musicPlayerView
-            }
-
-            // 2. Priority: PC is Offline
-            if (backend.pcOnline === false) {
-                if (backend.day === true) {
-                    // Day + Offline -> Show Info Screen
-                    return pcOffView
+            if (!isPcOnline) {
+                if (isDay) {
+                    return pcOffView; // Day + Offline
                 } else {
-                    // Night + Offline -> Show NOTHING (Unload loader)
-                    // This leaves just the Window background color
-                    return null
+                    return null;      // Night + Offline
                 }
             }
 
-            // 3. Default: Dashboard (PC is Online)
-            return dashboardView
+            if (isMusicPlaying) {
+                return musicPlayerView;
+            }
+
+            return dashboardView;
         }
     }
+
     Component {
         id: musicPlayerView
         MusicPlayer {}
